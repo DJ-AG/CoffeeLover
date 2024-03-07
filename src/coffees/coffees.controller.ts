@@ -3,8 +3,6 @@ import {
     Controller, 
     Delete, 
     Get, 
-    HttpCode, 
-    HttpStatus, 
     Param, 
     Patch, 
     Post, 
@@ -28,22 +26,22 @@ export class CoffeesController {
     @Get(':id')
     findOne(@Param('id') id:number){
         console.log(typeof id)
-        return this.coffeesService.findById('' + id)
+        return this.coffeesService.findOne('' + id)
     }
 
     @Post()
     create(@Body() createCoffeeDto: CreateCoffeeDto){
         console.log(createCoffeeDto instanceof CreateCoffeeDto)
-        return this.coffeesService.createCoffe(createCoffeeDto)
+        return this.coffeesService.create(createCoffeeDto)
     }
 
     @Patch(':id')
     update(@Param('id') id:string, @Body() UpdateCoffeeDto: UpdateCoffeeDto){
-        return this.coffeesService.updateCoffee(id, UpdateCoffeeDto)
+        return this.coffeesService.update(id, UpdateCoffeeDto)
     }
 
     @Delete(':id')
     remove(@Param('id') id:string, ){
-        return this.coffeesService.removeCoffee(id)
+        return this.coffeesService.remove(id)
     }
 }
