@@ -11,7 +11,15 @@ import { Flavor } from './entities/flavor.entity';
 
     controllers: [CoffeesController],
     
-    providers:[CoffeesService]
+    providers:[{
+
+        provide:CoffeesService,
+
+        useClass:CoffeesService
+
+    }],
+
+    exports:[CoffeesService]
     
 })
 
